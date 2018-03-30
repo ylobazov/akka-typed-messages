@@ -18,7 +18,7 @@ class RuntimeTypedActorIt extends TestKit(ActorSystem("RuntimeTypedActorItSystem
   with Matchers
   with BeforeAndAfterAll {
 
-  import BaseActorIt._
+  import RuntimeTypedActorIt._
 
   private val testActorPool: ActorRef = system.actorOf(RoundRobinPool(2).props(Props(classOf[TestActor], system)), "BaseActorItPool")
 
@@ -51,7 +51,7 @@ class RuntimeTypedActorIt extends TestKit(ActorSystem("RuntimeTypedActorItSystem
   }
 }
 
-object BaseActorIt {
+object RuntimeTypedActorIt {
   val ValidName = "valid"
   val StorageKey = "test"
   val StorageValue = "passed"
@@ -64,7 +64,7 @@ case class TestTrigger(sideEffectStorage: mutable.Map[String, String])(implicit 
 
 class TestActor(system: ActorSystem) extends RuntimeTypedActor {
 
-  import BaseActorIt._
+  import RuntimeTypedActorIt._
 
   override def handle[R](req: Request[R])(implicit ctx: Context): Future[req.Result] = {
     Future[req.Result](
