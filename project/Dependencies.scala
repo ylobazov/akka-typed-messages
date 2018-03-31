@@ -2,7 +2,6 @@ import sbt._
 
 object Dependencies {
 
-  val configVersion                 = "1.3.1"
   val circeVersion                  = "0.8.0"
   val akkaVersion                   = "2.5.8"
   val akkaHttpVersion               = "10.0.+"
@@ -14,7 +13,7 @@ object Dependencies {
   val slf4jVersion       = "1.7.25"
 
   val logback =
-    "ch.qos.logback"              %  "logback-classic"           % logbackVersion           % "provided"
+    "ch.qos.logback"             %  "logback-classic"            % logbackVersion           % "provided"
   val slf4j =
     "org.slf4j"                  %  "slf4j-api"                  % slf4jVersion             % "provided"
 
