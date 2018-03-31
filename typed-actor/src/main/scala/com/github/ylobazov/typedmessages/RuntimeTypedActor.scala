@@ -13,7 +13,7 @@ abstract class RuntimeTypedActor extends Actor with ContextLoggingSupport {
 
   protected def handle[R](req: Request[R])(implicit ctx: Context): Future[req.Result]
 
-  override def receive: Receive = {
+  override final def receive: Receive = {
     case t: Trigger =>
       implicit val ctx = t.ctx
       Try(handle(t)(ctx)) match {
